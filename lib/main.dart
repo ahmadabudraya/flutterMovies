@@ -34,14 +34,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
     var jsonData = json.decode(data.body);
     List<Movie>movies = [];
-    print(jsonData['results'][0]['title']);
     int moviesCount=jsonData['results'].length;
     for(int i=0; i<moviesCount; i++){
       var mov = jsonData['results'][i];
       Movie movie = Movie(i,mov['title'],mov['overview'],mov['poster_path']);
       movies.add(movie);
     }
-    print(movies.length);
     return movies;
   }
 
